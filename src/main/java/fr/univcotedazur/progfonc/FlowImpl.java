@@ -14,6 +14,10 @@ public class FlowImpl<I> implements Flow<I> {
         this.items = items;
     }
 
+    public List<I> getItems() {
+        return this.items;
+    }
+
     @Override
     public Flow<I> filter(Predicate<I> pred) {
         logger.info("applying 'filter' operation");
@@ -32,7 +36,7 @@ public class FlowImpl<I> implements Flow<I> {
 
     @Override
     public List<I> compute() {
-        logger.info("compute flow result");
+        logger.info("computing flow result");
         return new ArrayList<>(this.items);
     }
 }
