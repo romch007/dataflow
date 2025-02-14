@@ -25,4 +25,14 @@ public interface Flow<I> {
 
         throw new IllegalArgumentException("Invalid streams");
     }
+
+
+    static <T> Flow<T> fromList(List<T> l) {
+        Logger.getLogger("flow").info(String.format("created flow from list of size %d", l.size()));
+        return new FlowImpl<>(l);
+    }
+
+    static <T> Flow<T> empty() {
+        return fromList(List.of());
+    }
 }
